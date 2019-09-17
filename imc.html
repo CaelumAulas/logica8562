@@ -3,15 +3,10 @@
 <h1>Calculadora de IMC</h1>
 
 <script>
-    var peso
-    var altura
-    var imc
-    peso = 60
-    altura = 1.65
-    imc = peso/(altura*altura)
-    //imc = peso/altura**2
-    //imc = peso/Math.pow(altura,2)
+    var peso = prompt("Digite o seu peso:")
+    var altura = prompt("Digite a sua altura: (ex: 1.65)")
+    var imc = peso/(altura*altura)
 
-    document.write("O seu IMC é ")
-    document.write(imc)
+    document.write("O seu IMC é aproximadamente ")
+    document.write(imc.toFixed(2))
 </script>
