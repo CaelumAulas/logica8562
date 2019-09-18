@@ -8,14 +8,26 @@
 <h2>Carro</h2>
 
 <script>
-    var gasolina = parseFloat( prompt("Digite o gasto com gasolina em R$") )
-    var estacionamento = parseFloat(prompt("Digite o gasto com estacionamento em R$"))
-    var total = gasolina + estacionamento
+    var distancia = 
+    parseFloat(prompt("Digite a distância percorrida").replace(",","."))
+    var consumo = 
+    parseFloat(prompt("Digite o consumo do seu carro por litro")
+    .replace(",","."))
+    var precoGasolinaPosto = 
+    parseFloat(prompt("Digite o preço da gasolina no posto")
+    .replace(",","."))
 
-    document.write("Gasolina: R$ " +
-        gasolina.toFixed(2).replace(".",",") + "<br>")
-    document.write("Estacionamento: R$ " + 
-        estacionamento.toFixed(2).replace(".",",") + "<br>")
-    document.write("Total: R$ " +
-        total.toFixed(2).replace(".",",")) 
+    var gastoFinalGasolina = (distancia * precoGasolinaPosto) /consumo
+    
+    var estacionamento = parseFloat(
+        prompt("Digite o gasto com estacionamento em R$").replace(",","."))
+    var total = gastoFinalGasolina + estacionamento
+
+    document.write(`
+        Gasolina: R$ ${gastoFinalGasolina.toFixed(2).replace(".",",")} 
+        <br>
+        Estacionamento: R$ ${estacionamento.toFixed(2).replace(".",",")}
+        <br>
+        Total: R$ ${total.toFixed(2).replace(".",",")}
+    `) 
 </script>
