@@ -2,12 +2,10 @@
 
 <h1>Calculadora de IMC</h1>
 
-<script>
-    var mensagem = "Digite o seu peso:"
-    function pegaNumeroDecimal() {
-        return parseFloat(prompt(mensagem).replace("O", "0").replace(",","."))
-    }
+<script src="pegaNumero.js"></script>
 
+<script>
+    mensagem = "Digite o seu peso:"
     var peso = pegaNumeroDecimal()
     mensagem = "Digite a sua altura:"
     var altura = pegaNumeroDecimal()
