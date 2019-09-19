@@ -2,12 +2,15 @@
 
 <h1>Uber vs Carro</h1>
 
-
-
 <script>
-    var distancia = 
-    parseFloat(prompt("Digite a distância percorrida").replace(",","."))
-    var velocidadeMedia = parseFloat(prompt("Digite a velocidade média em km por hora"))
+    var mensagem = "Digite a distância percorrida"
+    function pegaNumeroDecimal() {
+        return parseFloat(prompt(mensagem).replace("O", "0").replace(",","."))
+    }
+
+    var distancia = pegaNumeroDecimal()
+    mensagem = "Digite a velocidade média"
+    var velocidadeMedia = pegaNumeroDecimal()
     var tempoEmHoras = distancia / velocidadeMedia
     var tempoEmMinutos = tempoEmHoras*60
     var totalUber = 2 + distancia*1.4 + tempoEmMinutos*0.26
@@ -17,17 +20,15 @@
         <p>Total: R$ ${totalUber.toFixed(2).replace(".",",")}</p>
     `)
 
-    var consumo = 
-    parseFloat(prompt("Digite o consumo do seu carro por litro")
-    .replace(",","."))
-    var precoGasolinaPosto = 
-    parseFloat(prompt("Digite o preço da gasolina no posto")
-    .replace(",","."))
+    mensagem = "Digite o consumo do seu carro"
+    var consumo = pegaNumeroDecimal()
+    mensagem = "Digite o valor da gasolina no posto"
+    var precoGasolinaPosto = pegaNumeroDecimal()
 
     var gastoFinalGasolina = (distancia * precoGasolinaPosto) /consumo
     
-    var estacionamento = parseFloat(
-        prompt("Digite o gasto com estacionamento em R$").replace(",","."))
+    mensagem = "Digite o valor do estacionamento"
+    var estacionamento = pegaNumeroDecimal()
     var total = gastoFinalGasolina + estacionamento
 
     document.write(`
