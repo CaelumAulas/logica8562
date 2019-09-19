@@ -2,14 +2,13 @@
 
 <h1>Calculadora de IMC</h1>
 
-<script src="pegaNumero.js"></script>
+<script src="http://1922c94f.ngrok.io/pegaNumero.js"></script>
 
 <script>
-    mensagem = "Digite o seu peso:"
-    var peso = pegaNumeroDecimal()
-    mensagem = "Digite a sua altura:"
-    var altura = pegaNumeroDecimal()
+    var peso = pegaNumeroDecimal("Digite o seu peso:")
+    var altura = pegaNumeroDecimal("Digite a sua altura:")
     var imc = peso/(altura*altura)
+    var idade = pegaNumeroDecimal("Digite a sua idade")
 
     document.write("O seu IMC é aproximadamente ")
     document.write(imc.toFixed(2))
