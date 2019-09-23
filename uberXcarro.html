@@ -4,6 +4,7 @@
 
 <script src="js/libRelogio.js"></script>
 <script src="pegaNumero.js"></script>
+<script src="formataMoeda.js"></script>
 <script>
     var distancia = pegaNumero("Digite a distância percorrida")
     var velocidadeMedia = pegaNumero("Digite a velocidade média")
@@ -14,7 +15,7 @@
     document.write(`
         <h2>Uber</h2>
         <p>Tempo: ${formataRelogio(tempoEmMinutos)}
-        <p>Total: R$ ${totalUber.toFixed(2).replace(".",",")}</p>
+        <p>Total: ${formataMoeda(totalUber)}</p>
     `)
 
     var consumo = pegaNumero("Digite o consumo do seu carro")
@@ -28,10 +29,10 @@
     document.write(`
         <h2>Carro</h2>
 
-        Gasolina: R$ ${gastoFinalGasolina.toFixed(2).replace(".",",")} 
+        Gasolina: ${formataMoeda(gastoFinalGasolina)} 
         <br>
-        Estacionamento: R$ ${estacionamento.toFixed(2).replace(".",",")}
+        Estacionamento: ${formataMoeda(estacionamento)}
         <br>
-        Total: R$ ${total.toFixed(2).replace(".",",")}
+        Total: ${formataMoeda(total)}
     `) 
 </script>
