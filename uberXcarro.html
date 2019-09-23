@@ -2,25 +2,27 @@
 
 <h1>Uber vs Carro</h1>
 
-<script src="http://1922c94f.ngrok.io/pegaNumero.js"></script>
+<script src="js/libRelogio.js"></script>
+<script src="pegaNumero.js"></script>
 <script>
-    var distancia = pegaNumeroDecimal("Digite a distância percorrida")
-    var velocidadeMedia = pegaNumeroDecimal("Digite a velocidade média")
+    var distancia = pegaNumero("Digite a distância percorrida")
+    var velocidadeMedia = pegaNumero("Digite a velocidade média")
     var tempoEmHoras = distancia / velocidadeMedia
     var tempoEmMinutos = tempoEmHoras*60
     var totalUber = 2 + distancia*1.4 + tempoEmMinutos*0.26
 
     document.write(`
         <h2>Uber</h2>
+        <p>Tempo: ${formataRelogio(tempoEmMinutos)}
         <p>Total: R$ ${totalUber.toFixed(2).replace(".",",")}</p>
     `)
 
-    var consumo = pegaNumeroDecimal("Digite o consumo do seu carro")
-    var precoGasolinaPosto = pegaNumeroDecimal("Digite o valor da gasolina no posto")
+    var consumo = pegaNumero("Digite o consumo do seu carro")
+    var precoGasolinaPosto = pegaNumero("Digite o valor da gasolina no posto")
 
     var gastoFinalGasolina = (distancia * precoGasolinaPosto) /consumo
     
-    var estacionamento = pegaNumeroDecimal("Digite o valor do estacionamento")
+    var estacionamento = pegaNumero("Digite o valor do estacionamento")
     var total = gastoFinalGasolina + estacionamento
 
     document.write(`
