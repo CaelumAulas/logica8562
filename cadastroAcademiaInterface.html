@@ -6,6 +6,7 @@ Nome: <input id="campoNome"> <br> <br>
 Peso: <input id="campoPeso"> <br> <br>
 Altura: <input id="campoAltura"> <br> <br>
 Data de Nascimento: <input id="campoData"> <br> <br>
+<input type="checkbox" id="campoSaude"> Tem problemas cardíacos <br> <br>
 <button onclick="cadastro()">Cadastrar</button>
 
 <script src="js/libIdade.js"></script>
@@ -23,6 +24,19 @@ Data de Nascimento: <input id="campoData"> <br> <br>
         var mesNascimento = parseInt( dataNascimentoSeparada[1] )
         var anoNascimento = parseInt( dataNascimentoSeparada[2] )
         var idade = calculaIdade(diaNascimento, mesNascimento, anoNascimento)
+
+        var temProblemasCardiacos = campoSaude.checked
+        var acompanhamento
+        //SE temProblemasCardiacos -> imprime "Necessita acompanhamento médico"
+        if (temProblemasCardiacos) {
+            acompanhamento = "Necessita acompanhamento médico"
+        }
+
+        // SE NÃO temProblemasCardiacos
+        if (!temProblemasCardiacos) {
+            acompanhamento = "Não precisa de acompanhamento médico"
+        }
+
         mostra(`
             <hr>
             Nome: ${nome} <br>
@@ -30,7 +44,8 @@ Data de Nascimento: <input id="campoData"> <br> <br>
             Altura: ${formataFloatBrasil(altura)}m <br>
             IMC: ${formataFloatBrasil(imc)} <br>
             Data de Nascimento: ${dataNascimento} <br>
-            Idade: ${idade} anos
+            Idade: ${idade} anos <br>
+            ${acompanhamento}
         `)
     }
 </script>
