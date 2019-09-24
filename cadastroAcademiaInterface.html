@@ -1,0 +1,37 @@
+<meta charset="utf-8">
+
+<h1>Cadastro Academia</h1>
+
+Nome: <input id="campoNome"> <br> <br>
+Peso: <input id="campoPeso"> <br> <br>
+Altura: <input id="campoAltura"> <br> <br>
+Data de Nascimento: <input id="campoData"> <br> <br>
+<button onclick="cadastro()">Cadastrar</button>
+
+<script src="js/libIdade.js"></script>
+<script src="js/libBrasil.js"></script>
+<script src="js/mostra.js"></script>
+<script>
+    function cadastro() {
+        var nome = campoNome.value
+        var peso = parseFloatBrasil(campoPeso.value)
+        var altura =  parseFloatBrasil(campoAltura.value)
+        var imc = peso/altura**2
+
+        var dataNascimento = campoData.value
+        var dataNascimentoSeparada = dataNascimento.split("/")
+        var diaNascimento = parseInt( dataNascimentoSeparada[0] )
+        var mesNascimento = parseInt( dataNascimentoSeparada[1] )
+        var anoNascimento = parseInt( dataNascimentoSeparada[2] )
+        var idade = calculaIdade(diaNascimento, mesNascimento, anoNascimento)
+
+        mostra(`
+            Nome: ${nome} <br>
+            Peso: ${formataFloatBrasil(peso)}kg <br>
+            Altura: ${formataFloatBrasil(altura)}m <br>
+            IMC: ${formataFloatBrasil(imc)} <br>
+            Data de Nascimento: ${dataNascimento} <br>
+            Idade: ${idade} anos
+        `)
+    }
+</script>
