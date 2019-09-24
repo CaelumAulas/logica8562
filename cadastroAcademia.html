@@ -4,18 +4,26 @@
 
 <script src="pegaNumero.js"></script>
 <script src="formataNumero.js"></script>
+<script src="js/libIdade.js"></script>
 <script>
     var nome = prompt("Digite o nome do aluno")
     var peso = pegaNumero("Digite o peso do aluno")
     var altura =  pegaNumero("Digite a altura do aluno")
-    var dataNascimento = prompt("Digite a data de nascimento do aluno")
     var imc = peso/altura**2
+
+    var dataNascimento = prompt("Digite a data de nascimento do aluno")
+    var dataNascimentoSeparada = dataNascimento.split("/")
+    var diaNascimento = parseInt( dataNascimentoSeparada[0] )
+    var mesNascimento = parseInt( dataNascimentoSeparada[1] )
+    var anoNascimento = parseInt( dataNascimentoSeparada[2] )
+    var idade = calculaIdade(diaNascimento, mesNascimento, anoNascimento)
 
     document.write(`
         Nome: ${nome} <br>
         Peso: ${formataNumeroDecimal(peso)}kg <br>
         Altura: ${formataNumeroDecimal(altura)}m <br>
         IMC: ${formataNumeroDecimal(imc)} <br>
-        Data de Nascimento: ${dataNascimento}
+        Data de Nascimento: ${dataNascimento} <br>
+        Idade: ${idade} anos
     `)
 </script>
