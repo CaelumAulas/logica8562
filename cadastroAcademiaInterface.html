@@ -26,14 +26,16 @@ Data de Nascimento: <input id="campoData"> <br> <br>
         var idade = calculaIdade(diaNascimento, mesNascimento, anoNascimento)
 
         var temProblemasCardiacos = campoSaude.checked
+        var ehCrianca = idade<16
         var acompanhamento
-        //SE temProblemasCardiacos -> imprime "Necessita acompanhamento médico"
-        if (temProblemasCardiacos) {
+
+        //SE temProblemasCardiacos OU ehCrianca
+        if (temProblemasCardiacos || ehCrianca) {
             acompanhamento = "Necessita acompanhamento médico"
         }
 
-        // SE NÃO temProblemasCardiacos
-        if (!temProblemasCardiacos) {
+        // SE NÃO temProblemasCardiacos E NÃO ehCrianca
+        if (!temProblemasCardiacos && !ehCrianca) {
             acompanhamento = "Não precisa de acompanhamento médico"
         }
 
