@@ -13,7 +13,14 @@ Data de Nascimento: <input id="campoData"> <br> <br>
 <script src="js/libBrasil.js"></script>
 <script src="js/mostra.js"></script>
 <script>
+    var numeroFicha = 0
     function cadastro() {
+        numeroFicha = numeroFicha+1
+        
+        if (numeroFicha == 1) {
+            mostra("<h3>Fichas:</h3>")
+        }
+
         var nome = campoNome.value
         var peso = parseFloatBrasil(campoPeso.value)
         var altura =  parseFloatBrasil(campoAltura.value)
@@ -40,6 +47,8 @@ Data de Nascimento: <input id="campoData"> <br> <br>
         }
 
         mostra(`
+            <hr>
+            Ficha: ${numeroFicha} <br>
             <hr>
             Nome: ${nome} <br>
             Peso: ${formataFloatBrasil(peso)}kg <br>
