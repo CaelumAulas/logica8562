@@ -1,0 +1,35 @@
+<meta charset="utf-8">
+
+<h1>Jogo Loteria</h1>
+
+<button onclick="jogar()">Iniciar</button>
+
+<script src="pegaNumero.js"></script>
+<script src="js/mostra.js"></script>
+<script>
+    var numeroJogo = 0
+    function jogar() {
+        var numeroEscolhido = parseInt(Math.random()*10)
+        console.log(numeroEscolhido)
+        var numeroChute = pegaNumero("Adivinhe o número entre 0 e 10")
+
+        if (numeroChute > 10 || numeroChute < 0) {
+            alert("Número inválido!")
+            numeroChute = pegaNumero("Adivinhe o número entre 0 e 10")
+        }
+
+        numeroJogo = numeroJogo + 1
+
+        if (numeroEscolhido == numeroChute) {
+            mostra(
+                "Jogo " + numeroJogo +  
+                ": Acertou! O número escolhido era " 
+                + numeroEscolhido)
+        } else {
+            mostra(`
+                Jogo ${numeroJogo}: 
+                Errrrrrou! O número escolhido era ${numeroEscolhido}
+            `)
+        }
+    }
+</script>
