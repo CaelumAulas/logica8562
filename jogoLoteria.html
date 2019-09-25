@@ -14,15 +14,15 @@
         var numeroChute = pegaNumero("Adivinhe o número entre 0 e 10")
 
         var qtdChutesInvalidos = 1
-        // ENQUANTO tentativas menor que 3 E numero invalido, pede novo numero
-        while (qtdChutesInvalidos < 3 && numeroChute > 10 || numeroChute < 0) {
+        // ENQUANTO numero invalido, pede novo numero
+        while (numeroChute > 10 || numeroChute < 0) {
+            if (qtdChutesInvalidos >= 3) {
+                alert("Limite de tentativas atingido!!")
+                break // sai do while
+            }
             alert("Número inválido! ")
             numeroChute = pegaNumero("Adivinhe o número entre 0 e 10")
             qtdChutesInvalidos = qtdChutesInvalidos + 1
-        }
-        
-        if (qtdChutesInvalidos >=3) {
-            alert("Limite de tentativas atingido!!")
         }
 
         numeroJogo = numeroJogo + 1
