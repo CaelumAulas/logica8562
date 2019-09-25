@@ -39,10 +39,7 @@ Data de Nascimento: <input id="campoData"> <br> <br>
         //SE temProblemasCardiacos OU ehCrianca
         if (temProblemasCardiacos || ehCrianca) {
             acompanhamento = "Necessita acompanhamento médico"
-        }
-
-        // SE NÃO temProblemasCardiacos E NÃO ehCrianca
-        if (!temProblemasCardiacos && !ehCrianca) {
+        } else {
             acompanhamento = "Não precisa de acompanhamento médico"
         }
 

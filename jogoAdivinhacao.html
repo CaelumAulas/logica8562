@@ -13,14 +13,13 @@
         var numeroChute = pegaNumero("Adivinhe o número!")
 
         numeroJogo = numeroJogo + 1
-        
+
         if (numeroEscolhido == numeroChute) {
             mostra(
                 "Jogo " + numeroJogo +  
                 ": Acertou! O número escolhido era " 
                 + numeroEscolhido)
-        }
-        if (numeroEscolhido != numeroChute) {
+        } else {
             mostra(`
                 Jogo ${numeroJogo}: 
                 Errrrrrou! O número escolhido era ${numeroEscolhido}
