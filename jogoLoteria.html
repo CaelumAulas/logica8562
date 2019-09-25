@@ -13,7 +13,8 @@
         console.log(numeroEscolhido)
         var numeroChute = pegaNumero("Adivinhe o número entre 0 e 10")
 
-        if (numeroChute > 10 || numeroChute < 0) {
+        // ENQUANTO numero invalido, pede novo numero
+        while (numeroChute > 10 || numeroChute < 0) {
             alert("Número inválido!")
             numeroChute = pegaNumero("Adivinhe o número entre 0 e 10")
         }
