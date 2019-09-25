@@ -1,0 +1,30 @@
+<meta charset="utf-8">
+
+<h1>Jogo Adivinhação</h1>
+
+<button onclick="jogar()">Iniciar</button>
+
+<script src="pegaNumero.js"></script>
+<script src="js/mostra.js"></script>
+<script>
+    var numeroJogo = 0
+    function jogar() {
+        var numeroEscolhido = pegaNumero("Escolha um número")
+        var numeroChute = pegaNumero("Adivinhe o número!")
+
+        numeroJogo = numeroJogo + 1
+        
+        if (numeroEscolhido == numeroChute) {
+            mostra(
+                "Jogo " + numeroJogo +  
+                ": Acertou! O número escolhido era " 
+                + numeroEscolhido)
+        }
+        if (numeroEscolhido != numeroChute) {
+            mostra(`
+                Jogo ${numeroJogo}: 
+                Errrrrrou! O número escolhido era ${numeroEscolhido}
+            `)
+        }
+    }
+</script>
