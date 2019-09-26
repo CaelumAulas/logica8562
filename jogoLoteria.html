@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 
 <h1>Jogo Loteria</h1>
-
+Quantos números devem ser sorteados? <input id="campoQtdSorteios"> <br>
 <button onclick="jogar()">Iniciar</button>
 
 <script src="pegaNumero.js"></script>
@@ -9,15 +9,21 @@
 <script>
     var numeroJogo = 0
     function jogar() {
-        var numerosEscolhidos = [parseInt(Math.random()*100), 
-                                parseInt(Math.random()*100),
-                                parseInt(Math.random()*100),
-                                parseInt(Math.random()*100),
-                                parseInt(Math.random()*100)]
+        var numerosEscolhidos = []
+        var totalSorteios = parseInt(campoQtdSorteios.value)
+        
+        var quantidadeSorteios = 0
+        while ( quantidadeSorteios  < totalSorteios ) {
+            var numeroEscolhido = parseInt(Math.random()*100)
+            numerosEscolhidos.push(numeroEscolhido)
+
+            quantidadeSorteios = quantidadeSorteios + 1
+        }
 
         console.log(numerosEscolhidos)
         var numeroChute = pegaNumero("Adivinhe o número entre 0 e 100")
 
+        // valida chute do usuário
         var qtdChutesInvalidos = 1
         // ENQUANTO numero invalido, pede novo numero
         while (numeroChute > 100 || numeroChute < 0) {
@@ -32,6 +38,7 @@
 
         numeroJogo = numeroJogo + 1
 
+        // verifica se acertou ou errou
         if ( numerosEscolhidos.includes(numeroChute) ) {
             mostra(
                 "Jogo " + numeroJogo +  
