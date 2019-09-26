@@ -9,33 +9,37 @@
 <script>
     var numeroJogo = 0
     function jogar() {
-        var numeroEscolhido = parseInt(Math.random()*10)
-        console.log(numeroEscolhido)
-        var numeroChute = pegaNumero("Adivinhe o número entre 0 e 10")
+        var numerosEscolhidos = [parseInt(Math.random()*100), 
+                                parseInt(Math.random()*100),
+                                parseInt(Math.random()*100),
+                                parseInt(Math.random()*100),
+                                parseInt(Math.random()*100)]
+
+        console.log(numerosEscolhidos)
+        var numeroChute = pegaNumero("Adivinhe o número entre 0 e 100")
 
         var qtdChutesInvalidos = 1
         // ENQUANTO numero invalido, pede novo numero
-        while (numeroChute > 10 || numeroChute < 0) {
+        while (numeroChute > 100 || numeroChute < 0) {
             if (qtdChutesInvalidos >= 3) {
                 alert("Limite de tentativas atingido!!")
                 break // sai do while
             }
             alert("Número inválido! ")
-            numeroChute = pegaNumero("Adivinhe o número entre 0 e 10")
+            numeroChute = pegaNumero("Adivinhe o número entre 0 e 100")
             qtdChutesInvalidos = qtdChutesInvalidos + 1
         }
 
         numeroJogo = numeroJogo + 1
 
-        if (numeroEscolhido == numeroChute) {
+        if ( numerosEscolhidos.includes(numeroChute) ) {
             mostra(
                 "Jogo " + numeroJogo +  
-                ": Acertou! O número escolhido era " 
-                + numeroEscolhido)
+                ": Acertou! Os números escolhidos eram " + numerosEscolhidos)
         } else {
             mostra(`
                 Jogo ${numeroJogo}: 
-                Errrrrrou! O número escolhido era ${numeroEscolhido}
+                Errrrrrou! Os números escolhidos eram ${numerosEscolhidos}
             `)
         }
     }
