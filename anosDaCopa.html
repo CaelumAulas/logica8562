@@ -4,10 +4,9 @@
 
 <script src="js/pegaPaisCopa.js"></script>
 <script>
-    var anoDaCopa = 1930
-    while (anoDaCopa < 2019) {
+
+    for (var anoDaCopa = 1930; anoDaCopa < 2019; anoDaCopa = anoDaCopa+4) {
         document.write(`${anoDaCopa} - ${pegaPaisCopa(anoDaCopa)} <br>`)
-        anoDaCopa = anoDaCopa+4
     }
 
 </script>
